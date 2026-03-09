@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surpresa!</title>
+<style>
+html,body{
+height:100%;
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#f0f0f0;
+font-family:sans-serif;
+overflow:hidden
+}
+
+#btn{
+padding:20px 40px;
+font-size:24px;
+cursor:pointer;
+background:#ff0000;
+color:#fff;
+border:none;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,.2);
+transition:transform .2s
+}
+
+#btn:hover{
+transform:scale(1.1)
+}
+
+#container{
+position:fixed;
+display:none;
+z-index:999;
+transition:all .5s linear
+}
+
+iframe{
+border:5px solid #000;
+box-shadow:0 0 20px rgba(0,0,0,.5);
+pointer-events:auto
+}
+</style>
+</head>
+<body>
+
+<button id="btn">clique aqui</button>
+
+<div id="container">
+<iframe id="player" width="560" height="315"
+src=""
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen></iframe>
+</div>
+
+<script>
+const btn=document.getElementById("btn")
+const container=document.getElementById("container")
+const player=document.getElementById("player")
+
+btn.onclick=()=>{
+btn.style.display="none"
+player.src="https://www.youtube.com/embed/gUkaoy1Pr7E?autoplay=1"
+container.style.display="block"
+mover()
+setInterval(mover,1200)
+}
+
+function mover(){
+const w=window.innerWidth-560
+const h=window.innerHeight-315
+container.style.left=Math.max(0,Math.random()*w)+"px"
+container.style.top=Math.max(0,Math.random()*h)+"px"
+}
+</script>
+
+</body>
+</html>
