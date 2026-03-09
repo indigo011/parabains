@@ -11,9 +11,17 @@ margin:0;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#f0f0f0;
 font-family:sans-serif;
-overflow:hidden
+overflow:hidden;
+background:linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet);
+background-size:1400% 1400%;
+animation:gradiente 120s linear infinite
+}
+
+@keyframes gradiente{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 #btn{
@@ -48,7 +56,7 @@ pointer-events:auto
 </head>
 <body>
 
-<button id="btn">Diorginho, clique aqui</button>
+<button id="btn">clique aqui</button>
 
 <div id="container">
 <iframe id="player" width="560" height="315"
@@ -82,4 +90,3 @@ container.style.top=Math.max(0,Math.random()*h)+"px"
 
 </body>
 </html>
-
